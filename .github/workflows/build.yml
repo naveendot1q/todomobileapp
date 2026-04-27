@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Install Gradle 8.3
+      - name: Install Gradle 8.6
         run: |
           wget -q https://services.gradle.org/distributions/gradle-8.6-bin.zip
           unzip -q gradle-8.6-bin.zip
@@ -40,7 +40,7 @@ jobs:
 
       - name: Build APK
         working-directory: android
-        run: gradle assembleRelease --no-daemon
+        run: gradle assembleRelease --no-daemon --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
