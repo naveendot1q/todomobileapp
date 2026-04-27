@@ -30,9 +30,9 @@ jobs:
 
       - name: Install Gradle 8.3
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.3-bin.zip
-          unzip -q gradle-8.3-bin.zip
-          echo "$(pwd)/gradle-8.3/bin" >> $GITHUB_PATH
+          wget -q https://services.gradle.org/distributions/gradle-8.6-bin.zip
+          unzip -q gradle-8.6-bin.zip
+          echo "$(pwd)/gradle-8.6/bin" >> $GITHUB_PATH
 
       - name: Generate debug keystore
         working-directory: android/app
