@@ -1,4 +1,2 @@
 rootProject.name = 'TodoApp'
-apply from: file("../node_modules/@react-native/gradle-plugin/settings-plugin.gradle");
 include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')

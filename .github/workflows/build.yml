@@ -28,19 +28,19 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Install Gradle 8.6
+      - name: Install Gradle 8.3
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.6-bin.zip
-          unzip -q gradle-8.6-bin.zip
-          echo "$(pwd)/gradle-8.6/bin" >> $GITHUB_PATH
+          wget -q https://services.gradle.org/distributions/gradle-8.3-bin.zip
+          unzip -q gradle-8.3-bin.zip
+          echo "$(pwd)/gradle-8.3/bin" >> $GITHUB_PATH
 
       - name: Generate debug keystore
         working-directory: android/app
         run: keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
 
-      - name: Build Release APK
+      - name: Build APK
         working-directory: android
-        run: gradle assembleRelease --no-daemon --stacktrace
+        run: gradle assembleRelease --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
